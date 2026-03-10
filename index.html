@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TikTok Photos - Black Mode PNG Editor</title>
+    
+    <!-- FAVICON (Icône de l'onglet) -->
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="apple-touch-icon" href="favicon.png">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
     <style>
@@ -125,9 +130,10 @@
     <!-- HEADER / ENTÊTE -->
     <header class="fixed top-0 left-0 right-0 z-50 h-20 flex items-center px-6 md:px-12">
         <div class="w-full max-w-7xl mx-auto flex justify-center md:justify-start items-center">
-            <div class="flex items-center gap-2">
-                <div class="w-8 h-8 bg-[#ff0050] rounded-lg flex items-center justify-center">
-                    <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.27 1.76-.23 1.03.14 2.23.99 2.85.67.47 1.47.62 2.27.49 1.13-.15 2.11-.88 2.51-1.94.16-.41.22-.85.22-1.28.01-4.32-.01-8.64-.01-12.96z"/></svg>
+            <div class="flex items-center gap-3">
+                <!-- Logo dynamique utilisant le favicon ou une icône personnalisée -->
+                <div class="w-10 h-10 bg-white/5 rounded-xl flex items-center justify-center border border-white/10 overflow-hidden">
+                    <img src="favicon.png" onerror="this.src='data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjZmYwMDUwIiB2aWV3Qm94PSIwIDAgMjQgMjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTEyLjUyNS4wMmMxLjMxLS4wMiAyLjYxLS4wMSAzLjkxLS4wMi4wOCAxLjUzLjYzIDMuMDkgMS43NSA0LjE3IDEuMTIgMS4xMSAyLjcgMS42MiA0LjI0IDEuNzl2NC4wM2MtMS40NC0uMDUtMi44OS0uMzUtNC4yLS45Ny0uNTctLjI2LTEuMS0uNTktMS42Mi0uOTMtLjAxIDIuOTIuMDEgNS44NC0uMDIgOC43NS0uMDggMS40LS41NCAyLjc5LTEuMzUgMy45NC0xLjMxIDEuOTItMy41OCAzLjE3LTUuOTEgMy4yMS0xLjQzLjA4LTIuODYtLjMxLTQuMDgtMS4wMy0yLjAyLTEuMTktMy40NC0zLjM3LTMuNjUtNS43MS0uMDItLjUtLjAzLTEtLjAxLTEuNDkuMTgtMS45IDEuMTItMy43MiAyLjU4LTQuOTYgMS42Ni0xLjQ0IDMuOTgtMi4xMyA2LjE1LTEuNzIuMDIgMS40OC0uMDQgMi45Ni0uMDQgNC40NC0uOTktLjMyLTIuMTUtLjIzLTMuMDIuMzctLjYzLjQxLTEuMTEgMS4wNC0xLjI3IDEuNzYtLjIzIDEuMDMuMTQgMi4yMy45OSAyLjg1LjY3LjQ3IDEuNDcuNjIgMi4yNy40OSAxLjEzLS4xNSAyLjExLS44OCAyLjUxLTEuOTQuMTYtLjQxLjIyLS44NS4yMi0xLjI4LjAxLTQuMzItLjAxLTguNjQtLjAxLTEyLjk2eiIvPjwvc3ZnPg=='" class="w-full h-full object-cover p-1" alt="Logo">
                 </div>
                 <h1 class="text-xl font-extrabold tracking-tighter">
                     <span style="color: #ff0050;">Tik</span>Tok <span class="text-white">Photos</span> 
@@ -374,9 +380,12 @@
                 if (data.code === 0 && data.data.images) {
                     currentPhotos = data.data.images;
                     renderGrid();
+                } else if (data.code !== 0) {
+                    // Gestion erreur API simple
+                    console.warn("API TikTok Error:", data.msg);
                 }
             } catch (err) {
-                console.error("Erreur : ", err);
+                console.error("Erreur de récupération : ", err);
             } finally {
                 statusIndicator.classList.add('hidden');
             }
@@ -407,6 +416,11 @@
             return new Promise((resolve) => {
                 const canvas = document.getElementById('renderCanvas');
                 const ctx = canvas.getContext('2d');
+                
+                // Optimisation de la qualité du rendu
+                ctx.imageSmoothingEnabled = true;
+                ctx.imageSmoothingQuality = 'high';
+
                 const mainImg = new Image();
                 const applyWatermark = logoToggle.checked && logoImage;
                 mainImg.crossOrigin = "anonymous";
@@ -414,6 +428,7 @@
                     canvas.width = mainImg.naturalWidth;
                     canvas.height = mainImg.naturalHeight;
                     ctx.drawImage(mainImg, 0, 0, canvas.width, canvas.height);
+                    
                     if (applyWatermark) {
                         const scale = wmSizeInput.value / 100;
                         const wmWidth = canvas.width * scale;
@@ -421,9 +436,11 @@
                         const margin = canvas.width * 0.04; 
                         let x = margin; let y = margin;
                         const [posY, posX] = wmPosition.split('-');
+                        
                         if (posX === 'right') x = canvas.width - wmWidth - margin;
                         if (posX === 'center') x = (canvas.width / 2) - (wmWidth / 2);
                         if (posY === 'bottom') y = canvas.height - wmHeight - margin;
+                        
                         ctx.drawImage(logoImage, x, y, wmWidth, wmHeight);
                     }
                     canvas.toBlob(resolve, 'image/png'); 
