@@ -282,6 +282,24 @@
         let logoImage = null;
         let wmPosition = 'bottom-center';
 
+        // --- NOUVEAU : Auto-remplissage via l'URL (ex: depuis Telegram) ---
+        window.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(window.location.search);
+            const urlParam = params.get('url');
+            if (urlParam) {
+                // On met l'URL dans le champ de texte
+                urlInput.value = urlParam; 
+                // On affiche le bouton de suppression (la croix)
+                clearBtn.classList.remove('hidden'); 
+                
+                // Si c'est bien un lien TikTok, on lance le fetch automatiquement !
+                if (urlParam.includes('tiktok.com')) {
+                    fetchTikTokPhotos(urlParam);
+                }
+            }
+        });
+        // -------------------------------------------------------------------
+
         toggleWm.addEventListener('click', () => {
             wmContent.classList.toggle('open');
             chevron.classList.toggle('rotated');
