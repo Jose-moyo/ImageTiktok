@@ -12,7 +12,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght=300;400;600;800&display=swap');
         
         body { 
             font-family: 'Plus Jakarta Sans', sans-serif; 
@@ -133,7 +133,7 @@
             <div class="flex items-center gap-3">
                 <!-- Logo dynamique utilisant le favicon ou une icône personnalisée -->
                 <div class="w-10 h-10 bg-white/5 rounded-xl flex items-center justify-center border border-white/10 overflow-hidden">
-                    <img src="favicon.png" onerror="this.src='data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjZmYwMDUwIiB2aWV3Qm94PSIwIDAgMjQgMjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTEyLjUyNS4wMmMxLjMxLS4wMiAyLjYxLS4wMSAzLjkxLS4wMi4wOCAxLjUzLjYzIDMuMDkgMS43NSA0LjE3IDEuMTIgMS4xMSAyLjcgMS42MiA0LjI0IDEuNzl2NC4wM2MtMS40NC0uMDUtMi44OS0uMzUtNC4yLS45Ny0uNTctLjI2LTEuMS0uNTktMS42Mi0uOTMtLjAxIDIuOTIuMDEgNS44NC0uMDIgOC43NS0uMDggMS40LS41NCAyLjc5LTEuMzUgMy45NC0xLjMxIDEuOTItMy41OCAzLjE3LTUuOTEgMy4yMS0xLjQzLjA4LTIuODYtLjMxLTQuMDgtMS4wMy0yLjAyLTEuMTktMy40NC0zLjM3LTMuNjUtNS43MS0uMDItLjUtLjAzLTEtLjAxLTEuNDkuMTgtMS45IDEuMTItMy43MiAyLjU4LTQuOTYgMS42Ni0xLjQ0IDMuOTgtMi4xMyA2LjE1LTEuNzIuMDIgMS40OC0uMDQgMi45Ni0uMDQgNC40NC0uOTktLjMyLTIuMTUtLjIzLTMuMDIuMzctLjYzLjQxLTEuMTEgMS4wNC0xLjI3IDEuNzYtLjIzIDEuMDMuMTQgMi4yMy45OSAyLjg1LjY3LjQ3IDEuNDcuNjIgMi4yNy40OSAxLjEzLS4xNSAyLjExLS44OCAyLjUxLTEuOTQuMTYtLjQxLjIyLS44NS4yMi0xLjI4LjAxLTQuMzItLjAxLTguNjQtLjAxLTEyLjk2eiIvPjwvc3ZnPg=='" class="w-full h-full object-cover p-1" alt="Logo">
+                    <img src="favicon.png" onerror="this.src='data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjZmYwMDUwIiB2aWV3Qm94PSIwIDAgMjQgMjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTEyLjUyNS4wMmMxLjMxLS4wMiAyLjYxLS4wMSAzLjkxLS4wMi4wOCAxLjUzLjYzIDMuMDkgMS43NSA0LjE3IDEuMTIgMS4xMSAyLjcgMS42MiA0LjI0IDEuNzl2NC4wM2MtMS40NC0uMDUtMi44OS0uMzUtNC4yLS45Ny0uNTctLjI2LTEuMS0uNTktMS42Mi0uOTMtLjAxIDIuOTIuMDEgNS44NC0uMDIgOC43NS0uMDggMS40LS41NCAyLjc5LTEuMzUgMy45NC0xLjMxIDEuOTItMy41OCAzLjE3LTUuOTEgMy4yMS0xLjQzLjA4LTIuODYtLjMxLTQuMDgtMS4wMy0yLjAyLTEuMTktMy40NC0zLjM3LTMuNjUtNS43MS0uMDItLjUtLjAzLTEtLjAxLTEuNDkuMTgtMS45IDEuMTIdMy43MiAyLjU4LTQuOTYgMS42Ni0xLjQ0IDMuOTgtMi4xMyA2LjE1LTEuNzIuMDIgMS40OC0uMDQgMi45Ni0uMDQgNC40NC0uOTktLjMyLTIuMTUtLjIzLTMuMDIuMzctLjYzLjQxLTEuMTEgMS4wNC0xLjI3IDEuNzYtLjIzIDEuMDMuMTQgMi4yMy45OSAyLjg1LjY3LjQ3IDEuNDcuNjIgMi4yNy40OSAxLjEzLS4xNSAyLjExLS44OCAyLjUxLTEuOTQuMTYtLjQxLjIyLS48NS4yMi0xLjI4LjAxLTQuMzId...'" class="w-full h-full object-cover p-1" alt="Logo">
                 </div>
                 <h1 class="text-xl font-extrabold tracking-tighter">
                     <span style="color: #ff0050;">Tik</span>Tok <span class="text-white">Photos</span> 
@@ -152,6 +152,9 @@
                 Téléchargez n'importe quelle photo TikTok en <strong>PNG haute résolution</strong>. Importez votre <strong>logo</strong> pour protéger et signer vos créations instantanément.
             </p>
         </div>
+
+        <!-- Notification d'erreur ou d'information -->
+        <div id="infoMessage" class="hidden glass border-yellow-500/30 p-4 rounded-2xl mb-6 text-center text-sm text-yellow-500"></div>
 
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 mb-10">
             <!-- Section URL -->
@@ -272,6 +275,7 @@
         const resultContainer = document.getElementById('resultContainer');
         const statusIndicator = document.getElementById('statusIndicator');
         const logoToggle = document.getElementById('logoToggle');
+        const infoMessage = document.getElementById('infoMessage');
         
         const toggleWm = document.getElementById('toggleWm');
         const wmContent = document.getElementById('wmContent');
@@ -282,23 +286,35 @@
         let logoImage = null;
         let wmPosition = 'bottom-center';
 
-        // --- NOUVEAU : Auto-remplissage via l'URL (ex: depuis Telegram) ---
+        // Auto-remplissage via l'URL (ex: depuis Telegram)
         window.addEventListener('DOMContentLoaded', () => {
             const params = new URLSearchParams(window.location.search);
             const urlParam = params.get('url');
             if (urlParam) {
-                // On met l'URL dans le champ de texte
-                urlInput.value = urlParam; 
-                // On affiche le bouton de suppression (la croix)
+                const cleanedParam = cleanAndDecodeUrl(urlParam);
+                urlInput.value = cleanedParam; 
                 clearBtn.classList.remove('hidden'); 
                 
-                // Si c'est bien un lien TikTok, on lance le fetch automatiquement !
-                if (urlParam.includes('tiktok.com')) {
-                    fetchTikTokPhotos(urlParam);
+                if (cleanedParam.includes('tiktok.com')) {
+                    fetchTikTokPhotos(cleanedParam);
                 }
             }
         });
-        // -------------------------------------------------------------------
+
+        // Nettoyage et normalisation de l'URL TikTok
+        function cleanAndDecodeUrl(rawUrl) {
+            let processed = rawUrl.trim();
+            try {
+                processed = decodeURIComponent(processed);
+            } catch (e) {
+                console.warn("Échec du décodage de l'URL brute:", e);
+            }
+            // Enlever les paramètres de tracking (?_r=1, ?_t=, ?is_from_webapp=, etc.)
+            if (processed.includes('?')) {
+                processed = processed.split('?')[0];
+            }
+            return processed;
+        }
 
         toggleWm.addEventListener('click', () => {
             wmContent.classList.toggle('open');
@@ -315,10 +331,13 @@
         });
 
         urlInput.addEventListener('input', () => {
-            const val = urlInput.value.trim();
-            clearBtn.classList.toggle('hidden', val === '');
-            if (val.includes('tiktok.com')) {
-                fetchTikTokPhotos(val);
+            const rawVal = urlInput.value.trim();
+            clearBtn.classList.toggle('hidden', rawVal === '');
+            infoMessage.classList.add('hidden');
+            
+            if (rawVal.includes('tiktok.com')) {
+                const cleanVal = cleanAndDecodeUrl(rawVal);
+                fetchTikTokPhotos(cleanVal);
             }
         });
 
@@ -326,6 +345,7 @@
             urlInput.value = '';
             clearBtn.classList.add('hidden');
             resultContainer.classList.add('hidden');
+            infoMessage.classList.add('hidden');
             urlInput.focus();
         });
 
@@ -390,23 +410,44 @@
             });
         }
 
+        // Récupération des données avec prise en charge des redirections de liens mobiles
         async function fetchTikTokPhotos(url) {
             statusIndicator.classList.remove('hidden');
+            infoMessage.classList.add('hidden');
+            
             try {
+                // Utilisation de l'API tikwm.com avec l'URL nettoyée et encodée
                 const response = await fetch(`https://www.tikwm.com/api/?url=${encodeURIComponent(url)}`);
                 const data = await response.json();
-                if (data.code === 0 && data.data.images) {
-                    currentPhotos = data.data.images;
-                    renderGrid();
-                } else if (data.code !== 0) {
-                    // Gestion erreur API simple
+                
+                if (data.code === 0 && data.data) {
+                    if (data.data.images && data.data.images.length > 0) {
+                        currentPhotos = data.data.images;
+                        renderGrid();
+                    } else if (data.data.play) {
+                        showInfo("Cette publication contient une vidéo unique, pas un diaporama de photos.");
+                        resultContainer.classList.add('hidden');
+                    } else {
+                        showInfo("Aucune photo ou vidéo exploitable n'a été trouvée sur ce lien.");
+                        resultContainer.classList.add('hidden');
+                    }
+                } else {
+                    showInfo("Impossible d'extraire le contenu. Vérifiez l'URL ou réessayez plus tard.");
+                    resultContainer.classList.add('hidden');
                     console.warn("API TikTok Error:", data.msg);
                 }
             } catch (err) {
+                showInfo("Une erreur réseau est survenue lors du chargement des images.");
+                resultContainer.classList.add('hidden');
                 console.error("Erreur de récupération : ", err);
             } finally {
                 statusIndicator.classList.add('hidden');
             }
+        }
+
+        function showInfo(msg) {
+            infoMessage.textContent = msg;
+            infoMessage.classList.remove('hidden');
         }
 
         function renderGrid() {
@@ -435,7 +476,6 @@
                 const canvas = document.getElementById('renderCanvas');
                 const ctx = canvas.getContext('2d');
                 
-                // Optimisation de la qualité du rendu
                 ctx.imageSmoothingEnabled = true;
                 ctx.imageSmoothingQuality = 'high';
 
