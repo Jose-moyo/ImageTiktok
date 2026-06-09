@@ -1,4 +1,4 @@
-V<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
 
 <head>
@@ -14,6 +14,17 @@ V<!DOCTYPE html>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght=300;400;600;800&display=swap');
+
+        /* Logo TikTok stylisé */
+        .tiktok-logo {
+            position: relative;
+            display: inline-block;
+            color: #ffffff;
+            text-shadow:
+                -2px -1px 0px #25F4EE,
+                2px 1px 0px #FE2C55;
+            letter-spacing: -0.05em;
+        }
 
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
@@ -32,9 +43,9 @@ V<!DOCTYPE html>
         }
 
         header {
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(0, 0, 0, 0.85);
             backdrop-filter: blur(15px);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
         }
 
         .loader {
@@ -177,7 +188,7 @@ V<!DOCTYPE html>
     <header class="fixed top-0 left-0 right-0 z-50 h-20 flex items-center px-6 md:px-12">
         <div class="w-full max-w-7xl mx-auto flex justify-center md:justify-start items-center">
             <div class="flex items-center gap-3">
-                <h1 class="text-xl font-extrabold tracking-tighter text-black">
+                <h1 class="text-2xl font-extrabold tracking-tighter tiktok-logo">
                     Image TikTok
                 </h1>
             </div>
@@ -206,10 +217,10 @@ V<!DOCTYPE html>
                     class="block text-[9px] font-bold uppercase tracking-[0.2em] mb-4 opacity-30 text-center lg:text-left">Lien
                     de la publication TikTok</label>
                 <div
-                    class="relative flex items-center bg-white/5 border border-white/10 rounded-2xl overflow-hidden group focus-within:border-blue-500/50 transition-all shadow-inner">
+                    class="relative flex items-center bg-white border border-gray-200 rounded-2xl overflow-hidden group focus-within:border-blue-500/50 transition-all shadow-inner">
                     <input id="urlInput" type="text" placeholder="https://www.tiktok.com/@user/photo/..."
-                        class="w-full bg-transparent px-6 py-5 outline-none text-white pr-14 text-base text-center lg:text-left">
-                    <button id="clearBtn" class="absolute right-4 p-2 rounded-xl bg-white/5 text-white/30 hidden">
+                        class="w-full bg-transparent px-6 py-5 outline-none text-black placeholder-gray-400 pr-14 text-base text-center lg:text-left">
+                    <button id="clearBtn" class="absolute right-4 p-2 rounded-xl bg-gray-100 text-gray-400 hidden">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
                             stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
